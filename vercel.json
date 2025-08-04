@@ -1,8 +1,8 @@
 {
   "rewrites": [
     {
-      "source": "/api/:path*",  // The frontend request path
-      "destination": "https://ifonmbbhyreuewdcvfyt.supabase.co/:path*" // Supabase API endpoint
+      "source": "/api/:path*",
+      "destination": "https://ifonmbbhyreuewdcvfyt.supabase.co/:path*"
     }
   ]
 }
