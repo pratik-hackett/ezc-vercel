@@ -1,0 +1,30 @@
+
+project_id = "ifonmbbhyreuewdcvfyt"
+
+[functions.auth-login]
+verify_jwt = false
+
+[functions.auth-signup]
+verify_jwt = false
+
+[functions.user-roles]
+verify_jwt = false
+
+[functions.adverse-events]
+verify_jwt = false
+
+[functions.sap-business-partner]
+verify_jwt = false
+
+[functions.check-customer-exists]
+verify_jwt = false
+
+[functions.site-defaults]
+verify_jwt = false
+
+[functions.master-defaults]
+verify_jwt = false
+
+[functions.partner-creation]
+verify_jwt = false
+
