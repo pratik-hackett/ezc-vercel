@@ -31,14 +31,14 @@ const SapQuotations: React.FC = () => {
   const [endDate, setEndDate] = useState('');
 
   const handleSearch = async () => {
-    if (!edgeFunctionUrl) {
-      toast({
-        title: "Error",
-        description: "Please provide the Edge Function URL",
-        variant: "destructive"
-      });
-      return;
-    }
+    // if (!edgeFunctionUrl) {
+    //   toast({
+    //     title: "Error",
+    //     description: "Please provide the Edge Function URL",
+    //     variant: "destructive"
+    //   });
+    //   return;
+    // }
 
     if (!soldToParty) {
       toast({
@@ -66,7 +66,7 @@ const SapQuotations: React.FC = () => {
         })
       };
 
-      const response = await sapQuotationService.getQuotations(request, edgeFunctionUrl);
+      const response = await sapQuotationService.getQuotations(request, "/api/get-sap-quotes");
       setQuotations(response.d.results);
       setTotalCount(response.totalCount);
       
@@ -112,13 +112,13 @@ const SapQuotations: React.FC = () => {
   };
 
   return (
-    <div className="container mx-auto p-6 space-y-6">
+    <div className="container mx-auto p-1 space-y-6">
       <div className="flex items-center justify-between">
         <h1 className="text-3xl font-bold">{t('sapQuotations.title')}</h1>
       </div>
 
       {/* Configuration Card */}
-      <Card>
+      {/* <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <Search className="h-5 w-5" />
@@ -136,18 +136,10 @@ const SapQuotations: React.FC = () => {
                 onChange={(e) => setEdgeFunctionUrl(e.target.value)}
               />
             </div>
-            <div className="space-y-2">
-              <Label htmlFor="soldToParty">{t('sapQuotations.soldToParty')}</Label>
-              <Input
-                id="soldToParty"
-                placeholder="Enter Sold To Party ID"
-                value={soldToParty}
-                onChange={(e) => setSoldToParty(e.target.value)}
-              />
-            </div>
+
           </div>
         </CardContent>
-      </Card>
+      </Card> */}
 
       {/* Filters Card */}
       <Card>
@@ -158,7 +150,16 @@ const SapQuotations: React.FC = () => {
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="space-y-2">
+              <Label htmlFor="soldToParty">{t('sapQuotations.soldToParty')}</Label>
+              <Input
+                id="soldToParty"
+                placeholder="Enter Sold To Party ID"
+                value={soldToParty}
+                onChange={(e) => setSoldToParty(e.target.value)}
+              />
+            </div>
             <div className="space-y-2">
               <Label htmlFor="status">{t('sapQuotations.status')}</Label>
               <Select value={statusFilter} onValueChange={setStatusFilter}>

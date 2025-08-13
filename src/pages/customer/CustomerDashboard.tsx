@@ -32,10 +32,14 @@ const CustomerDashboard = () => {
     return null;
   }
 
+  const handleBrowseClick = () => {
+    navigate("/customer/sap-quotations"); // <-- your target route
+  };
+
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="h-14 flex items-center justify-between border-b px-4">
+      {/* <header className="h-14 flex items-center justify-between border-b px-4">
         <div className="flex items-center gap-4">
           <h1 className="text-lg font-semibold">Customer Portal</h1>
         </div>
@@ -50,10 +54,10 @@ const CustomerDashboard = () => {
             {t('common.logout')}
           </Button>
         </div>
-      </header>
+      </header> */}
 
       {/* Main Content */}
-      <div className="p-6">
+      <div className="">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <Card>
             <CardHeader>
@@ -67,6 +71,21 @@ const CustomerDashboard = () => {
             </CardHeader>
             <CardContent>
               <Button className="w-full">View Orders</Button>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Package className="h-5 w-5" />
+                SAP Quotation
+              </CardTitle>
+              <CardDescription>
+                Get SAP quotation details
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <Button className="w-full" onClick={handleBrowseClick}>Browse Quotation</Button>
             </CardContent>
           </Card>
           

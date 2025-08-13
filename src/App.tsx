@@ -30,6 +30,7 @@ import SystemAuth from "./pages/admin/config/SystemAuth";
 import SiteDefaults from "./pages/admin/config/SiteDefaults";
 import Analytics from "./pages/admin/Analytics";
 import { AdminLayout } from "./components/admin/AdminLayout";
+import { CustomerLayout } from "./components/customer/CustomerLayout";
 
 const queryClient = new QueryClient();
 
@@ -94,14 +95,19 @@ const AppContent = () => {
               <SapApi />
             </AdminLayout>
           } />
-          <Route path="/admin/sap-quotations" element={
-            <AdminLayout>
-              <SapQuotations />
-            </AdminLayout>
+          <Route path="/customer/sap-quotations" element={
+              <CustomerLayout>
+                <SapQuotations />
+              </CustomerLayout>
           } />
           <Route path="/admin/site-defaults" element={<SiteDefaults />} />
           <Route path="/admin/analytics" element={<Analytics />} />
-            <Route path="/customer" element={<CustomerDashboard />} />
+            {/* <Route path="/customer" element={<CustomerDashboard />} /> */}
+            <Route path="/customer" element={
+              <CustomerLayout>
+                <CustomerDashboard />
+              </CustomerLayout>
+          } />
             <Route path="/licenses" element={<Licenses />} />
             <Route path="/getting-started" element={<GettingStarted />} />
             <Route path="/frontend" element={<Frontend />} />
